@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <title>Starter Template for Bootstrap</title>
+    <title>DevOps</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />-->
+    <link th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
 
     <!-- Custom styles for this template -->
-    <style>
-        body {
-            padding-top: 50px;
-        }
-
-        .starter-template {
-            padding: 40px 15px;
-            text-align: center;
-        }
-    </style>
+    <link type="text/css" th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -53,7 +45,7 @@
 
     <div class="starter-template">
         <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br/git > All you get is this text and a
+        <p class="lead">Use this document as a way to quickly start any new project.<br/> All you get is this text and a
             mostly barebones HTML document.</p>
     </div>
 
@@ -62,7 +54,11 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<!--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+<script th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
 </body>
 </html>
