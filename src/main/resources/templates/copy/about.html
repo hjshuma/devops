@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header :: common-header" />
+
+<body>
+
+    <div th:replace="common/navbar :: common-navbar" />
+
+    <div class="container">
+
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="text-center" th:text="#{copy.h1.text}"></h1>
+                <p class="lead" th:text="#{copy.p.lead}"></p>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140" />
+                <h2>Stella</h2>
+                <div class="span4 collapse-group">
+                    <p class="collapse text-justify" th:text="#{copy.project.lead.intro}">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}">View details &raquo;</a></p>
+                </div>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140" />
+                <h2>Jake</h2>
+                <div class="span4 collapse-group">
+                    <p class="collapse text-justify" th:text="#{copy.project.lead.intro}">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}">View details &raquo;</a></p>
+                </div>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140" />
+                <h2>Grace</h2>
+                <div class="span4 collapse-group">
+                    <p class="collapse text-justify" th:text="#{copy.project.lead.intro}">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}">View details &raquo;</a></p>
+                </div>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140" />
+                <h2>James</h2>
+                <div class="span4 collapse-group">
+                    <p class="collapse text-justify" th:text="#{copy.project.lead.intro}">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}">View details &raquo;</a></p>
+                </div>
+            </div><!-- /.span4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider" />
+
+        <div class="featurette">
+            <img class="featurette-image pull-right" th:src="@{/images/browser-icon-chrome.png}" />
+            <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <div class="featurette">
+            <img class="featurette-image pull-left" th:src="@{/images/browser-icon-firefox.png}" />
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <div class="featurette">
+            <img class="featurette-image pull-right" th:src="@{/images/browser-icon-safari.png}" />
+            <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <!-- /END THE FEATURETTES -->
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2018 devops.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    -->
+    <div th:replace="common/header :: before-body-scripts" />
+</body>
+</html>
