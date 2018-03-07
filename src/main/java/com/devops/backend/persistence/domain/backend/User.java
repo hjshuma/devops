@@ -152,6 +152,14 @@ public class User implements Serializable {
         this.enabled = enabled;
     }
 
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+
     public Set<UserRole> getUserRoles() {
         return userRoles;
     }
@@ -174,4 +182,5 @@ public class User implements Serializable {
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
     }
+
 }
