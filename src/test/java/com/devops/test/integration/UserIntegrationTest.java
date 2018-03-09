@@ -28,7 +28,7 @@ import java.util.Set;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DevopsApplication.class)
 @WebAppConfiguration
-public class RepositoryIntegrationTest {
+public class UserIntegrationTest extends AbstractIntegrationTest {
 
     @Autowired
     private PlanRepository planRepository;
@@ -99,30 +99,4 @@ public class RepositoryIntegrationTest {
         userRepository.delete(basicUser.getId());
     }
 
-    private Plan createPlan(PlansEnum plansEnum) {
-        return new Plan(plansEnum);
-    }
-
-    private Role createRole(RolesEnum rolesEnum) {
-        return new Role(rolesEnum);
-    }
-
-    private User createUser(String username, String email) {
-        Plan basicPlan = createPlan(PlansEnum.BASIC);
-        planRepository.save(basicPlan);
-
-        User basicUser = UserUtils.createBasicUser(username, email);
-        basicUser.setPlan(basicPlan);
-
-        Role basicRole = createRole(RolesEnum.BASIC);
-        roleRepository.save(basicRole);
-
-        Set<UserRole> userRoles = new HashSet<>();
-        UserRole userRole = new UserRole(basicUser, basicRole);
-
-        basicUser.getUserRoles().addAll(userRoles);
-        basicUser = userRepository.save(basicUser);
-
-        return basicUser;
-    }
 }
