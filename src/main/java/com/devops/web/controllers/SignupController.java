@@ -6,9 +6,11 @@ import com.devops.backend.persistence.domain.backend.User;
 import com.devops.backend.persistence.domain.backend.UserRole;
 import com.devops.backend.service.PlanService;
 import com.devops.backend.service.S3Service;
+import com.devops.backend.service.StripeService;
 import com.devops.backend.service.UserService;
 import com.devops.enums.PlansEnum;
 import com.devops.enums.RolesEnum;
+import com.devops.utils.StripeUtils;
 import com.devops.utils.UserUtils;
 import com.devops.web.domain.frontend.BasicAccountPayload;
 import com.devops.web.domain.frontend.ProAccountPayload;
@@ -30,10 +32,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class SignupController {
@@ -46,6 +45,9 @@ public class SignupController {
 
     @Autowired
     private S3Service s3Service;
+
+    @Autowired
+    private StripeService stripeService;
 
     /** The application logger */
     private static final Logger LOG = LoggerFactory.getLogger(SignupController.class);
@@ -155,6 +157,18 @@ public class SignupController {
                 model.addAttribute(ERROR_MESSAGE_KEY, "One of more credit card details is null or empty");
                 return SUBSCRIPTON_VIEW_NAME;
             }
+
+            Map<String, Object> stripeTokenParams = StripeUtils.extractTokenParamsFormSignupPayload(payload);
+
+            Map<String, Object> customerParams = new HashMap<>();
+            customerParams.put("description", "DevOps customer. Username: " + payload.getUsername());
+            customerParams.put("email", payload.getEmail());
+            customerParams.put("plan", selectedPlan.getId());
+            LOG.info("Subscribing the customer to plan {}", selectedPlan.getName());
+            String stripeCustomerId = stripeService.createCustomer(stripeTokenParams, customerParams);
+            LOG.info("Username: {} has been subscribed to Stripe", payload.getUsername());
+
+            user.setStripeCustomerId(stripeCustomerId);
 
             registeredUser = userService.createUser(user, PlansEnum.PRO, roles);
             LOG.debug(payload.toString());

@@ -1,7 +1,5 @@
 package com.devops.config;
 
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan(basePackages = "com.devops.backend.persistence.domain.backend")
 @EnableTransactionManagement
 @PropertySource("file:///${user.home}/.devops/application-common.properties")
+@PropertySource("file:///${user.home}/.devops/stripe.properties")
 public class ApplicationConfig {
 
     @Value("${aws.s3.profile}")
