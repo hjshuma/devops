@@ -3,6 +3,7 @@ package com.devops.test.integration;
 import com.devops.DevopsApplication;
 import com.devops.backend.service.StripeService;
 import com.devops.enums.PlansEnum;
+import com.devops.utils.StripeUtils;
 import com.stripe.Stripe;
 import com.stripe.model.Customer;
 import org.junit.Assert;
@@ -55,11 +56,11 @@ public class StripeIntegrationTest {
     public void createStripeCustomer() throws Exception {
         Map<String, Object> tokenParams = new HashMap<>();
         Map<String, Object> cardParams = new HashMap<>();
-        cardParams.put("number", TEST_CC_NUMBER);
-        cardParams.put("exp_month", TEST_CC_EXP_MONTH);
-        cardParams.put("exp_year", LocalDate.now(Clock.systemUTC()).getYear() + 1);
-        cardParams.put("cvc", TEST_CC_CVC_NBR);
-        tokenParams.put("card", cardParams);
+        cardParams.put(StripeUtils.STRIPE_CARD_NUMBER_KEY, TEST_CC_NUMBER);
+        cardParams.put(StripeUtils.STRIPE_EXPIRY_MONTH_KEY, TEST_CC_EXP_MONTH);
+        cardParams.put(StripeUtils.STRIPE_EXPIRY_YEAR_KEY, LocalDate.now(Clock.systemUTC()).getYear() + 1);
+        cardParams.put(StripeUtils.STRIPE_CVC_KEY, TEST_CC_CVC_NBR);
+        tokenParams.put(StripeUtils.STRIPE_CARD_KEY, cardParams);
 
         Map<String, Object> customerParams = new HashMap<>();
         customerParams.put("description", "Customer for test@example.com");
